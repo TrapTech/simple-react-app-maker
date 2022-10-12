@@ -1,0 +1,17 @@
+{
+    "name": "simple-react-app",
+    "version": "1.0.0",
+    "description": "A very simple collection of build scripts for React applications",
+    "main": "index.js",
+    "scripts": {
+        "format": "prettier --cache --write ."
+    },
+    "keywords": [
+        "react",
+        "esbuild"
+    ],
+    "license": "MIT",
+    "devDependencies": {
+        "prettier": "^2.7.1"
+    }
+}
