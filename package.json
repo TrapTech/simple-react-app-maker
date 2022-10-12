@@ -1,8 +1,11 @@
 {
-    "name": "simple-react-app",
+    "name": "simple-react-app-maker",
     "version": "1.0.0",
     "description": "A very simple collection of build scripts for React applications",
-    "main": "index.js",
+    "bin": {
+        "simple-react-server": "./server.mjs",
+        "simple-react-publish": "./publish.mjs"
+    },
     "scripts": {
         "format": "prettier --cache --write ."
     },
@@ -10,8 +13,22 @@
         "react",
         "esbuild"
     ],
+    "engines": {
+        "node": ">=18"
+    },
     "license": "MIT",
     "devDependencies": {
         "prettier": "^2.7.1"
+    },
+    "dependencies": {
+        "@esbuild-plugins/node-globals-polyfill": "^0.1.1",
+        "@esbuild-plugins/node-modules-polyfill": "^0.1.4",
+        "browserslist": "^4.21.4",
+        "esbuild": "^0.15.10",
+        "esbuild-plugin-browserslist": "^0.5.1",
+        "esbuild-plugin-svgr": "^1.0.1",
+        "jsdom": "^20.0.1",
+        "node-emoji": "^1.11.0",
+        "react-csp": "^1.1.3"
     }
 }
