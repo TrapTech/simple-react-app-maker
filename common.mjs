@@ -1,6 +1,7 @@
 import path from "node:path";
 import { readFile } from "node:fs/promises";
 import { env, cwd } from "node:process";
+import { fileURLToPath } from "node:url";
 import chalk from "chalk";
 import nodeEmoji from "node-emoji";
 import browserslist from "browserslist";
@@ -15,6 +16,8 @@ export const log = (text) => console.info(nodeEmoji.emojify(text));
 
 export const __dirname = cwd();
 log(`:wrench: Build folder path: ${chalk.blue(__dirname)}`);
+
+const __thisdir = path.dirname(fileURLToPath(import.meta.url));
 
 export const __public = path.normalize(path.join(__dirname, "./public"));
 log(`:wrench: Public files path: ${chalk.blue(__public)}`);
@@ -34,6 +37,9 @@ const browsersQuery = (isDev
 const target = [...new Set(resolveToEsbuildTarget(browserslist(browsersQuery), { printUnknownTargets: false }))].sort();
 log(`:wrench: Bundle target: ${chalk.blue(target)}`);
 
+const entryPoints = packageJson?.build?.entrypoints ?? [path.join(__dirname, "./src/index.tsx")];
+log(`:wrench: Entrypoints: ${entryPoints.join(',')}`);
+
 // Base config for esbuild
 export const commonEsBuildConfig = {
     incremental: true,
@@ -47,16 +53,18 @@ export const commonEsBuildConfig = {
     publicPath: siteRoot,
     legalComments: "linked",
 
-    entryPoints: packageJson?.build?.entrypoints ?? [path.join(__dirname, "./src/index.tsx")],
+    entryPoints,
     assetNames: "assets/[name]-[hash]",
     chunkNames: "chunks/[name]-[hash]",
+
+    nodePaths: [path.join(__dirname, "node_modules")],
 
     // Make sure development stuff is not included in production build
     external: isDev ? [] : [path.join(__dirname, "./src/pages/development/*")],
     drop: isDev ? [] : ["debugger"],
 
     // Makes React work without imports
-    inject: [path.join(__dirname, "react-shim.js")],
+    inject: [path.join(__thisdir, "react-shim.js")],
 
     plugins: [
         // Makes importing .svg files work
