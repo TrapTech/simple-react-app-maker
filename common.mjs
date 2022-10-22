@@ -14,19 +14,19 @@ import { resolveToEsbuildTarget } from "esbuild-plugin-browserslist";
 
 export const log = (text) => console.info(nodeEmoji.emojify(text));
 
-export const __dirname = cwd();
+export const __dirname = path.join(cwd(), "./build");
 log(`:wrench: Build folder path: ${chalk.blue(__dirname)}`);
 
 const __thisdir = path.dirname(fileURLToPath(import.meta.url));
 
-export const __public = path.normalize(path.join(__dirname, "./public"));
+export const __public = path.normalize(path.join(__dirname, "../public"));
 log(`:wrench: Public files path: ${chalk.blue(__public)}`);
 
 export const isDev = env.NODE_ENV !== "production";
 log(`:wrench: Current mode: ${chalk.blue(isDev ? "development" : "production")}`);
 
 // Read package.json for configuration
-const packageJson = JSON.parse(await readFile(path.join(__dirname, "./package.json")));
+const packageJson = JSON.parse(await readFile(path.join(__dirname, "../package.json")));
 
 const siteRoot = packageJson?.homepage ?? "/";
 log(`:wrench: Site root: ${chalk.blue(siteRoot)}`);
@@ -37,7 +37,7 @@ const browsersQuery = (isDev
 const target = [...new Set(resolveToEsbuildTarget(browserslist(browsersQuery), { printUnknownTargets: false }))].sort();
 log(`:wrench: Bundle target: ${chalk.blue(target)}`);
 
-const entryPoints = packageJson?.build?.entrypoints ?? [path.join(__dirname, "./src/index.tsx")];
+const entryPoints = packageJson?.build?.entrypoints ?? [path.join(__dirname, "../src/index.tsx")];
 log(`:wrench: Entrypoints: ${entryPoints.join(',')}`);
 
 // Base config for esbuild
@@ -57,10 +57,10 @@ export const commonEsBuildConfig = {
     assetNames: "assets/[name]-[hash]",
     chunkNames: "chunks/[name]-[hash]",
 
-    nodePaths: [path.join(__dirname, "node_modules")],
+    nodePaths: [path.join(__dirname, "../node_modules")],
 
     // Make sure development stuff is not included in production build
-    external: isDev ? [] : [path.join(__dirname, "./src/pages/development/*")],
+    external: isDev ? [] : [],
     drop: isDev ? [] : ["debugger"],
 
     // Makes React work without imports
@@ -90,7 +90,7 @@ export const commonEsBuildConfig = {
 };
 
 export async function prepareHtml(generatedFiles) {
-    let html = await readFile(path.join(__dirname, "./public/index.html"), "utf8");
+    let html = await readFile(path.join(__dirname, "../public/index.html"), "utf8");
 
     // Fill out %PUBLIC_URL% to preserve compat with react-scripts
     const urlPrefix = siteRoot.replace(/\/$/, "");
