@@ -6,6 +6,8 @@
         "simple-react-server": "./server.mjs",
         "simple-react-publish": "./publish.mjs"
     },
+    "types": "./index.d.ts",
+    "typings": "./index.d.ts",
     "scripts": {
         "format": "prettier --cache --write ."
     },
@@ -23,6 +25,9 @@
     "dependencies": {
         "@esbuild-plugins/node-globals-polyfill": "^0.1.1",
         "@esbuild-plugins/node-modules-polyfill": "^0.1.4",
+        "@types/node": "^18.11.3",
+        "@types/react": "^18.0.21",
+        "@types/react-dom": "^18.0.6",
         "browserslist": "^4.21.4",
         "esbuild": "^0.15.10",
         "esbuild-plugin-browserslist": "^0.5.1",
