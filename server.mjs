@@ -15,7 +15,7 @@ const { host, port, stop } = await serve(
     },
     {
         ...commonEsBuildConfig,
-    },
+    }
 );
 
 log(":rocket: Starting proxy to serve index.html");
