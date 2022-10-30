@@ -41,7 +41,7 @@ log(":white_check_mark: Done writing build meta info");
 
 log(":chart_with_upwards_trend: Setting up index.html file");
 const buildPrefix = relative(
-    normalize(join(__dirname, "./")),
+    normalize(join(__dirname, "../")),
     normalize(join(__dirname, "dist"))
 );
 const generatedFiles = Object.keys(buildResult.metafile.outputs).map((f) =>
