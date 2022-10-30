@@ -3,8 +3,10 @@
 This npm package is a collection of extremely simple scripts, intended for
 super-fast building of React applications.
 
-It tries to be _mostly_ compatible with Create React App, but thanks to usage
-of [esbuild](https://esbuild.github.io/), achieves record build times.
+Thanks to usage
+of [esbuild](https://esbuild.github.io/), achieves _very fast_ build times.
+
+It tries to be _mostly_ compatible with Create React App. 
 
 ## Usage
 
@@ -32,12 +34,13 @@ Make sure your project has the following:
 Then, you can run one of the following scripts:
 
 - `npx simple-react-server` - creates a development server. Your application is available under `localhost:3000`.
+    Note that for simplicity, the devserver _does not_ support live reload. To see changes, refresh the page in the browser.
 
 - `npx simple-react-publish` - builds your application to the `build/dist/` folder.
 
 ## Configuration
 
-The scripts can be configured using some `package.json` fields.
+The scripts can be configured using `package.json` fields.
 
 Some configuration options are controlled by the `NODE_ENV` environment variable.
 If the variable is not defined, `development` is assumed.
