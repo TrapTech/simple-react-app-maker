@@ -3,8 +3,8 @@
 This npm package is a collection of extremely simple scripts, intended for
 super-fast building of React applications.
 
-Thanks to usage
-of [esbuild](https://esbuild.github.io/), achieves _very fast_ build times.
+Thanks to the usage
+of [esbuild](https://esbuild.github.io/), it achieves _very fast_ build times.
 
 It tries to be _mostly_ compatible with Create React App. 
 
