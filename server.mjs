@@ -40,7 +40,7 @@ const esbuildContext = await context({
     outdir: servedir
 });
 
-const { host, port, stop } = await esbuildContext.serve({
+const { host, port } = await esbuildContext.serve({
     servedir: servedir,
 });
 
@@ -77,6 +77,6 @@ log(":white_check_mark: Dev server is available on port 3000");
 
 process.on("SIGINT", () => {
     log(":wave: Detected SIGINIT, exiting. Bye!");
-    stop();
+    esbuildContext.cancel();
     proxy.close();
 });
