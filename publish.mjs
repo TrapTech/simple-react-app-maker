@@ -21,11 +21,8 @@ if (existsSync(join(__dirname, "dist"))) {
 const startTime = Date.now();
 log(":rocket: Starting build");
 
-const buildResult = await build({
-    ...commonEsBuildConfig,
-    outdir: join(__dirname, "dist/"),
-    entryNames: "[name]-[hash]",
-});
+const buildResult = await build(commonEsBuildConfig);
+
 log(":white_check_mark: Done build");
 log(`:clock1: Build time: ${Date.now() - startTime} ms`);
 

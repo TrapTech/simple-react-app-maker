@@ -64,7 +64,6 @@ log(`:wrench: Entrypoints: ${entryPoints.join(",")}`);
 
 // Base config for esbuild
 export const commonEsBuildConfig = {
-    incremental: true,
     metafile: true,
     sourcemap: isDev,
     bundle: true,
@@ -78,6 +77,9 @@ export const commonEsBuildConfig = {
     entryPoints,
     assetNames: "assets/[name]-[hash]",
     chunkNames: "chunks/[name]-[hash]",
+    entryNames: "[name]-[hash]",
+
+    outdir: path.join(__dirname, "dist/"),
 
     nodePaths: [path.join(__dirname, "../node_modules")],
 
