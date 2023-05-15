@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import { env, cwd } from "node:process";
 import { fileURLToPath } from "node:url";
 import chalk from "chalk";
-import nodeEmoji from "node-emoji";
+import { emojify } from "node-emoji";
 import browserslist from "browserslist";
 import { JSDOM } from "jsdom";
 import { getConfig, formatCSP } from "react-csp/lib/utils.js";
@@ -12,7 +12,7 @@ import NodeModulesPolyfills from "@esbuild-plugins/node-modules-polyfill";
 import GlobalsPolyfills from "@esbuild-plugins/node-globals-polyfill";
 import { resolveToEsbuildTarget } from "esbuild-plugin-browserslist";
 
-export const log = (text) => console.info(nodeEmoji.emojify(text));
+export const log = (text) => console.info(emojify(text));
 
 export const __dirname = path.join(cwd(), "./build");
 log(`:wrench: Build folder path: ${chalk.blue(__dirname)}`);
