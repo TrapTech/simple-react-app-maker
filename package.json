@@ -30,7 +30,7 @@
     },
     "dependencies": {
         "@esbuild-plugins/node-globals-polyfill": "^0.1.1",
-        "@esbuild-plugins/node-modules-polyfill": "^0.1.4",
+        "@esbuild-plugins/node-modules-polyfill": "^0.2.2",
         "@types/node": "^18.11.3",
         "@types/react": "^18.0.21",
         "@types/react-dom": "^18.0.6",
