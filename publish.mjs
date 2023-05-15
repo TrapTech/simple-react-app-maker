@@ -60,10 +60,7 @@ for (const file of readdirSync(__public)) {
         continue;
     }
 
-    await copy(
-        join(__public, file),
-        join(__dirname, "dist", basename(file))
-    );
+    await copy(join(__public, file), join(__dirname, "dist", basename(file)));
 }
 log(":white_check_mark: Done copying files");
 
