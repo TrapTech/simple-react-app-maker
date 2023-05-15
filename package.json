@@ -29,7 +29,7 @@
         "react-dom": "*"
     },
     "dependencies": {
-        "@esbuild-plugins/node-globals-polyfill": "^0.1.1",
+        "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
         "@esbuild-plugins/node-modules-polyfill": "^0.1.4",
         "@types/node": "^18.11.3",
         "@types/react": "^18.0.21",
