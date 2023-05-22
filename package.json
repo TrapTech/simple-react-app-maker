@@ -21,7 +21,7 @@
     "license": "MIT",
     "repository": "https://github.com/TrapTech/simple-react-app-maker",
     "devDependencies": {
-        "prettier": "2.7.1",
+        "prettier": "2.8.8",
         "typescript": "5.0.4"
     },
     "peerDependencies": {
