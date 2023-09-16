@@ -1,6 +1,6 @@
 {
     "name": "simple-react-app-maker",
-    "version": "1.1.3",
+    "version": "1.1.4",
     "description": "A very simple collection of build scripts for React applications",
     "bin": {
         "simple-react-server": "./server.mjs",
