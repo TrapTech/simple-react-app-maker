@@ -31,7 +31,7 @@
     "dependencies": {
         "@esbuild-plugins/node-globals-polyfill": "0.2.3",
         "@esbuild-plugins/node-modules-polyfill": "0.2.2",
-        "@types/node": "22.9.3",
+        "@types/node": "22.10.1",
         "@types/react": "^18.0.21",
         "@types/react-dom": "^18.0.6",
         "browserslist": "^4.21.4",
