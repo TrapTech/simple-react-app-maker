@@ -22,7 +22,7 @@
     "repository": "https://github.com/TrapTech/simple-react-app-maker",
     "devDependencies": {
         "prettier": "3.5.3",
-        "typescript": "5.7.2"
+        "typescript": "5.8.2"
     },
     "peerDependencies": {
         "react": "*",
