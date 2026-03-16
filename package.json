@@ -38,7 +38,7 @@
         "esbuild": "0.27.3",
         "esbuild-plugin-browserslist": "2.0.0",
         "esbuild-plugin-svgr": "^3.1.0",
-        "fs-extra": "11.3.3",
+        "fs-extra": "11.3.4",
         "jsdom": "28.1.0",
         "node-emoji": "2.1.3",
         "react-csp": "1.1.3"
